@@ -1,0 +1,12 @@
+Description:
+    Explain the generator
+
+Example:
+    rails generate uikit_view:install
+    rails generate uikit_view:copy
+    rails generate scaffold [MODEL]
+    rails generate model [MODEL]
+    rails generate scaffold_controller [CONTROLLER] --model-name=model --no-helper
+        
+    This will create:
+        what/will/it/create

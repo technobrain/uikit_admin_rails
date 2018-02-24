@@ -1,0 +1,19 @@
+@base-selection-background:                     #9df;
+@base-selection-color:                          @global-color;
+
+.hook-base-body() {
+  @media (max-width: @breakpoint-xsmall-max) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: @breakpoint-small-max) {
+    font-size: 0.85rem;
+  }
+  color: @global-color;
+}
+
+.hook-base-misc() {
+
+  body {
+    color: @global-color;
+  }
+}

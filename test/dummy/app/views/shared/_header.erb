@@ -1,0 +1,17 @@
+<div class="uk-navbar-left">
+  <%= link_to '/', class: "uk-navbar-item uk-logo uk-visible@m" do %>
+  application
+  <%= yield :application_name %>
+  <% end %>
+  <%= yield :offcanvas_content %>
+</div>
+<div class="uk-navbar-right">
+  <div class="uk-navbar-item">
+    search
+    <%= yield :search %>
+  </div>
+  <div class="uk-navbar-item">
+    sign in
+    <%= yield :user_session %>
+  </div>
+</div>

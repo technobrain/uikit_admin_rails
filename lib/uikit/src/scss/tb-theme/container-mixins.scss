@@ -1,0 +1,62 @@
+//
+// Component: Container
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-container-misc(){}
+@if(mixin-exists(hook-container-misc)) {@include hook-container-misc();}
+
+@mixin hook-container-misc(){
+  // new rule
+  .tb-navbar-container:not(.uk-navbar-transparent) {
+    background: linear-gradient(to left, #28a5f5, #1e87f0);
+  }
+
+  .tb-sidebar-left {
+    position: fixed;
+    top: 0;
+    box-sizing: border-box;
+    width: 240px !important;
+    bottom: 0;
+    padding: 40px 40px 60px 40px;
+    border-right: 1px $global-border solid;
+    overflow: scroll;
+  }
+
+  .tb-sidebar-left-bottom {
+    position: fixed;
+    top: $navbar-nav-item-height;
+    box-sizing: border-box;
+    width: 240px !important;
+    bottom: 0;
+    padding: 40px 40px 60px 40px;
+    border-right: 1px $global-border solid;
+    overflow: scroll;
+  }
+
+  .tb-main.uk-section {
+    padding-top: 0;
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    .tb-sidebar-left-bottom+.tb-main {
+      padding-left: 240px;
+    }
+
+    .tb-sidebar-left+.tb-navbar-container {
+      padding-left: 240px;
+    }
+    .tb-sidebar-left+.tb-main {
+      padding-left: 240px;
+      // padding-top: 0;
+    }
+  }
+}

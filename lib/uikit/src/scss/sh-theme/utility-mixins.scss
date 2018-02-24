@@ -1,0 +1,65 @@
+//
+// Component: Utility
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Panel
+// ========================================================================
+
+// @mixin hook-panel-scrollable(){}
+
+
+// Box-shadow bottom
+// ========================================================================
+
+// @mixin hook-box-shadow-bottom(){}
+
+
+// Drop cap
+// ========================================================================
+
+
+
+
+// Leader
+// ========================================================================
+
+// @mixin hook-leader(){}
+
+
+// Logo
+// ========================================================================
+
+// @mixin hook-logo(){}
+
+// @mixin hook-logo-hover(){}
+
+@mixin hook-logo() {
+  color: $global-inverse-color;
+  background: $global-primary-background;
+}
+
+@mixin hook-logo-hover() {
+  color: $global-muted-background;
+}
+
+// Miscellaneous
+// ========================================================================
+
+// @mixin hook-utility-misc(){}
+
+
+// Inverse
+// ========================================================================
+
+// @mixin hook-inverse-dropcap(){}
+
+// @mixin hook-inverse-leader(){}
+
+// @mixin hook-inverse-logo(){}
+// @mixin hook-inverse-logo-hover(){}

@@ -1,0 +1,3 @@
+[submodule "lib/uikit"]
+	path = lib/uikit
+	url = https://github.com/technobrain/uikit.git
