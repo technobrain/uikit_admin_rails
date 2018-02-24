@@ -1,0 +1,2 @@
+module UikitAdminRails
+end
