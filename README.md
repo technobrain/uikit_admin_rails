@@ -7,13 +7,13 @@ How to use my plugin.
 Run the following command to generate the initializer file.
 
 ```
-$ rails generate uikit_admin:install
+$ rails generate uikit_admin_rails:install
 ```
 
 Run the following command to copy templates files.
 
 ```
-$ rails generate uikit_admin:copy
+$ rails generate uikit_admin_rails:copy
 ```
 
 Append following code to app/assets/application.js
