@@ -15,5 +15,6 @@ Rails.application.config.generators do |g|
 
   g.test_framework :minitest, spec: false, fixture: false
   g.system_tests nil
+  g.fallbacks[:minitest] = :rspec
   g.templates.unshift File::expand_path('../../../lib/templates', __FILE__)
 end
