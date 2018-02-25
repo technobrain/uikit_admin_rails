@@ -18,3 +18,7 @@ Rails.application.config.generators do |g|
   g.fallbacks[:minitest] = :rspec
   g.templates.unshift File::expand_path('../../../lib/templates', __FILE__)
 end
+
+UikitAdminRails.configure do |config|
+  config.admin_controller_namespace = :admin
+end
