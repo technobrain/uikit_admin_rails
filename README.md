@@ -1,4 +1,4 @@
-# UikitAdminRailsRails
+# UikitAdminRails
 Short description and motivation.
 
 ## Usage
