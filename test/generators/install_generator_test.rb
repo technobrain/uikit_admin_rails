@@ -3,7 +3,6 @@ require 'generators/uikit_admin_rails/install/install_generator'
 
 class InstallGeneratorTest < ActiveSupport::TestCase
   def test_install_generator
-    # assert_output(/create initializers\/rails_admin.rb/m) do
     assert_output(/create initializers\/uikit_admin.rb/m) do
       UikitAdminRails::InstallGenerator.start
     end
