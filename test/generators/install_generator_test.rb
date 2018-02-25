@@ -10,5 +10,6 @@ class InstallGeneratorTest < ActiveSupport::TestCase
     assert File.exists? dest
     contents = File.read "test/test_helper.rb"
     assert_match(/Rails.application.config.generators do |g|/m, contents)
+    assert_match(/UikitAdminRails.configure do |config|/m, contents)
   end
 end

@@ -1,16 +1,19 @@
+require 'uikit_admin_rails/engine'
+require 'uikit_admin_rails/version'
+require 'uikit_admin_rails/configuration'
+
 module UikitAdminRails
   # Your code goes here...
 
-  # class Application < Rails::Application
-  #   # Rails.application.config.assets.paths << File::expand_path('../uikit', __FILE__)
-  #   Rails.application.config.assets.paths << File::expand_path('../uikit/dist/js', __FILE__)
-  #   Rails.application.config.assets.paths << File::expand_path('../uikit/dist/css', __FILE__)
-  # end
+  class << self
+    delegate(*Configuration::OPTIONS, to: :configuration)
 
-  class Engine < ::Rails::Engine
-    config.to_prepare do
-      Rails.application.config.assets.paths << File::expand_path('../uikit/dist/js', __FILE__)
-      Rails.application.config.assets.paths << File::expand_path('../uikit/dist/css', __FILE__)
+    def configuration
+      @configuration ||= Configuration.new
+    end
+
+    def configure
+      yield configuration
     end
   end
 end
