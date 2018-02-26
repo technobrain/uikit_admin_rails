@@ -57,15 +57,15 @@
     </div>
     <div class="actions">
       <% if controller_class_path.size > 0 %>
-      <%%= link_to <%= controller_class_path.join('_') %>_<%= index_helper %>_path, class: 'uk-button uk-button-small uk-button-default' do %>
-        Cancel
-      <%% end %>
+        <%%= link_to <%= controller_class_path.join('_') %>_<%= index_helper %>_path, class: 'uk-button uk-button-small uk-button-default' do %>
+          Cancel
+        <%% end %>
       <% else %>
-      <%%= link_to <%= index_helper %>_path, class: 'uk-button uk-button-small uk-button-default' do %>
-        Cancel
-      <%% end %>
-    </div>
+        <%%= link_to <%= index_helper %>_path, class: 'uk-button uk-button-small uk-button-default' do %>
+          Cancel
+        <%% end %>
     <% end %>
+    </div>
   </div>
   <%% if form.object.persisted? %>
   <div>
