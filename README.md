@@ -10,12 +10,6 @@ Run the following command to generate the initializer file.
 $ rails generate uikit_admin_rails:install
 ```
 
-Run the following command to copy templates files.
-
-```
-$ rails generate uikit_admin_rails:copy
-```
-
 Append following code to app/assets/application.js
 
 ```
@@ -73,6 +67,18 @@ Or install it yourself as:
 
 ```bash
 gem 'uikit_admin_rails', github: 'technobrain/uikit_admin_rails', branch: 'develop', submodules: true
+```
+
+## Customize templates
+Run the following command to copy templates files for customize templates.
+
+```
+$ rails generate uikit_admin_rails:copy
+```
+And append following code to config/initializers/uikit_admin.rb.
+
+```
+Rails.application.config.generators.unshift File::expand_path('../../../lib/templates', __FILE__)
 ```
 
 ## Contributing

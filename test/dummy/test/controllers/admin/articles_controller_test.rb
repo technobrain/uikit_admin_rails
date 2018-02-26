@@ -6,7 +6,7 @@ class Admin::ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   def test_index
-    get admin_articles_path
+    get admin_articles_url
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class Admin::ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   def test_create
     assert_difference "Article.count" do
-      post admin_articles_path, params: { article: { content: article.content, title: article.title } }
+      post admin_articles_url, params: { article: { content: article.content, title: article.title } }
     end
 
     assert_redirected_to admin_article_path(Article.last)
