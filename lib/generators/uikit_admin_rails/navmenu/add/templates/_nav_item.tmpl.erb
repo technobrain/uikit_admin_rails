@@ -1,0 +1,7 @@
+<li>
+<% if options[:namespace] -%>
+  <%%= link_to '<%=@item.titleize.pluralize %>', <%= namespace.split('/').join('_') %>_<%= @item.tableize %>_path %>
+<% else -%>
+  <%%= link_to '<%= @item.titleize.pluralize %>', <%= @item.tableize %>_path %>
+<% end -%>
+</li>
