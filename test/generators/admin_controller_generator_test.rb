@@ -11,5 +11,8 @@ class AdminControllerGeneratorTest < ActiveSupport::TestCase
     # contents = File.read "test/test_helper.rb"
     # assert_match(/Rails.application.config.generators do |g|/m, contents)
     # assert_match(/UikitAdminRails.configure do |config|/m, contents)
+
+    dest_views_shared = Rails.root.join('app', 'views', 'shared')
+    assert Dir.exist? dest_views_shared
   end
 end

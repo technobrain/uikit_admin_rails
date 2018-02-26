@@ -10,14 +10,14 @@ New <%= singular_table_name.titleize %>
   <ul class="uk-breadcrumb">
     <% if controller_class_path.size > 0 %>
     <li>
-      <%%= link_to t('nav.admin_top'), root_path %>
+      <%%= link_to 'TOP', '/' %>
     </li>
     <li>
       <%%= link_to '<%= plural_table_name.titleize %>', <%= controller_class_path.join('_') %>_<%= index_helper %>_path %>
     </li>
     <% else %>
     <li>
-      <%%= link_to t('nav.admin_top'), root_path %>
+      <%%= link_to 'TOP', '/' %>
     </li>
     <li>
       <%%= link_to '<%= plural_table_name.titleize %>', <%= index_helper %>_path %>

@@ -11,17 +11,25 @@ module UikitAdminRails
 
     def copy_admin_layout
       puts 'copy admin layout'
-      source = '../templates/layouts/admin.html.erb'
+      source = '../templates/views/layouts/admin.html.erb'
       dest = Rails.root.join('app', 'views', 'layouts', "#{@ns}.html.erb")
       copy_file source, dest
     end
 
     def copy_admin_base_index
       puts 'copy admin base index'
-      source = '../templates/views/index.html.erb'
+      source = '../templates/views/admin/index.html.erb'
       dest = Rails.root.join('app', 'views', @ns.to_s, 'index.html.erb')
       @path = "#{@ns}/index"
       template source, dest
+    end
+
+    def copy_shared_templates
+      puts 'copy shared templates'
+
+      source = File.expand_path('../templates/views/shared', __FILE__)
+      dest = Rails.root.join('app', 'views', 'shared')
+      directory source, dest
     end
 
     def generate_base_controller

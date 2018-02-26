@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ArticlesControllerTest < ActionDispatch::IntegrationTest
+class Admin::ArticlesControllerTest < ActionDispatch::IntegrationTest
   def article
     @article ||= articles :one
   end

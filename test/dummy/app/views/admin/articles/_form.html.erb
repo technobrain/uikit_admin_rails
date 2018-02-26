@@ -1,5 +1,5 @@
 
-<%= form_with(model: article, local: true, class: 'uk-form-horizontal') do |form| %>
+<%= form_with(model: [:admin, article], local: true, class: 'uk-form-horizontal') do |form| %>
 
   <% if article.errors.any? %>
     <div id="error_explanation">
@@ -35,20 +35,19 @@
     </div>
     <div class="actions">
       
-      <%= link_to articles_path, class: 'uk-button uk-button-small uk-button-default' do %>
+      <%= link_to admin_articles_path, class: 'uk-button uk-button-small uk-button-default' do %>
         Cancel
       <% end %>
-    </div>
-    
+      
   </div>
   <% if form.object.persisted? %>
   <div>
     <div class="actions">
       
-      <%= link_to 'Delete Article', @article,
-                  method: :delete,
-                  class: 'uk-button uk-button-small uk-button-danger uk-align-right',
-                  data: { confirm: 'Are you sure?' }
+      <%= link_to 'Delete Article', admin_article_path(@article),
+                   method: :delete,
+                   class: 'uk-button uk-button-small uk-button-danger uk-align-right',
+                   data: { confirm: 'Are you sure?' }
       %>
       
     </div>

@@ -8,18 +8,18 @@ Articles
 
 <% content_for :breadcrumb do -%>
   <ul class="uk-breadcrumb">
-    <li><%= link_to t('nav.admin_top'), '/' %></li>
+    <li><%= link_to 'TOP', '/' %></li>
     <li>
-
-      <%= link_to 'Articles', articles_path %>
-
+      
+      <%= link_to 'Articles', admin_articles_path %>
+      
     </li>
   </ul>
 <% end %>
 
 <div class="uk-align-right">
 
-<%= link_to 'New Article', new_article_path, class: 'uk-button uk-button-small uk-button-primary' %>
+<%= link_to 'New Article', new_admin_article_path, class: 'uk-button uk-button-small uk-button-primary' %>
 
 </div>
 
@@ -37,11 +37,11 @@ Articles
       <tr>
         <td><%= article.title %></td>
         <td><%= article.content %></td>
-
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
+        
+        <td><%= link_to 'Show', admin_article_path(article) %></td>
+        <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
+        <td><%= link_to 'Destroy', admin_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>

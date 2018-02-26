@@ -9,14 +9,14 @@ Article
 <% content_for :breadcrumb do -%>
   <ul class="uk-breadcrumb">
     <li>
-      <%= link_to t('nav.admin_top'), '/' %>
+      <%= link_to 'TOP', '/' %>
     </li>
     
     <li>
-      <%= link_to 'Articles', articles_path %>
+      <%= link_to 'Articles', admin_articles_path %>
     </li>
     <li>
-      <%= link_to 'Article', @article %>
+      <%= link_to 'Article', admin_article_path(@article) %>
     </li>
     
   </ul>
@@ -26,7 +26,7 @@ Article
   <ul class="uk-subnav uk-subnav-divider">
     <li>
       
-      <%= link_to articles_path do %>
+      <%= link_to admin_articles_path do %>
       
         <span uk-icon="list"> </span>
         List
@@ -34,7 +34,7 @@ Article
     </li>
     <li>
       
-      <%= link_to edit_article_path(@article) do %>
+      <%= link_to edit_admin_article_path(@article) do %>
       
         <span uk-icon="file-edit"> </span>
         Edit
