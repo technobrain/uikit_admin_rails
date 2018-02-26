@@ -34,22 +34,19 @@
       <%= form.submit nil, class: 'uk-button uk-button-small uk-button-primary' %>
     </div>
     <div class="actions">
-      
       <%= link_to admin_articles_path, class: 'uk-button uk-button-small uk-button-default' do %>
         Cancel
       <% end %>
-      
+    </div>
   </div>
   <% if form.object.persisted? %>
   <div>
     <div class="actions">
-      
       <%= link_to 'Delete Article', admin_article_path(@article),
                    method: :delete,
                    class: 'uk-button uk-button-small uk-button-danger uk-align-right',
                    data: { confirm: 'Are you sure?' }
       %>
-      
     </div>
   </div>
   <% end %>

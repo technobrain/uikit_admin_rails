@@ -56,33 +56,33 @@
       <%%= form.submit nil, class: 'uk-button uk-button-small uk-button-primary' %>
     </div>
     <div class="actions">
-      <% if controller_class_path.size > 0 %>
+<% if controller_class_path.size > 0 -%>
       <%%= link_to <%= controller_class_path.join('_') %>_<%= index_helper %>_path, class: 'uk-button uk-button-small uk-button-default' do %>
         Cancel
       <%% end %>
-      <% else %>
+<% else -%>
       <%%= link_to <%= index_helper %>_path, class: 'uk-button uk-button-small uk-button-default' do %>
         Cancel
       <%% end %>
+<% end -%>
     </div>
-    <% end %>
   </div>
   <%% if form.object.persisted? %>
   <div>
     <div class="actions">
-      <% if controller_class_path.size > 0 %>
+<% if controller_class_path.size > 0 -%>
       <%%= link_to 'Delete <%= singular_table_name.titleize %>', <%= controller_class_path.join('_') %>_<%= singular_table_name %>_path(@<%= singular_table_name %>),
                    method: :delete,
                    class: 'uk-button uk-button-small uk-button-danger uk-align-right',
                    data: { confirm: 'Are you sure?' }
       %>
-      <% else %>
+<% else -%>
       <%%= link_to 'Delete <%= singular_table_name.titleize %>', @<%= singular_table_name %>,
                   method: :delete,
                   class: 'uk-button uk-button-small uk-button-danger uk-align-right',
                   data: { confirm: 'Are you sure?' }
       %>
-      <% end %>
+<% end -%>
     </div>
   </div>
   <%% end %>
