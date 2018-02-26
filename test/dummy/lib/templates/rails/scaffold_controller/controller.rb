@@ -31,11 +31,11 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= singular_table_name %> = <%= orm_class.build(class_name, "#{singular_table_name}_params") %>
 
     if @<%= orm_instance.save %>
-      <% if Array(controller_class_name).size > 1 %>
+<% if controller_class_path.size > 0 -%>
       redirect_to <%= controller_class_path.join('_') %>_<%= singular_table_name %>_path(@<%= singular_table_name %>), notice: <%= "'#{human_name} was successfully created.'" %>
-      <% else %>
+<% else -%>
       redirect_to @<%= singular_table_name %>, notice: <%= "'#{human_name} was successfully created.'" %>
-      <% end %>
+<% end -%>
     else
       render :new
     end
@@ -44,11 +44,11 @@ class <%= controller_class_name %>Controller < ApplicationController
   # PATCH/PUT <%= route_url %>/1
   def update
     if @<%= orm_instance.update("#{singular_table_name}_params") %>
-      <% if Array(controller_class_name).size > 1 %>
+<% if controller_class_path.size > 0 -%>
       redirect_to <%= controller_class_path.join('_') %>_<%= singular_table_name %>_path(@<%= singular_table_name %>), notice: <%= "'#{human_name} was successfully created.'" %>
-      <% else %>
+<% else -%>
       redirect_to @<%= singular_table_name %>, notice: <%= "'#{human_name} was successfully updated.'" %>
-      <% end %>
+<% end -%>
     else
       render :edit
     end
@@ -57,11 +57,11 @@ class <%= controller_class_name %>Controller < ApplicationController
   # DELETE <%= route_url %>/1
   def destroy
     @<%= orm_instance.destroy %>
-    <% if Array(controller_class_name).size > 1 %>
-    redirect_to <%= controller_class_path.join('_') %>_<%= index_helper %>_url, notice: <%= "'#{human_name} was successfully destroyed.'" %>
-    <% else %>
-    redirect_to <%= index_helper %>_url, notice: <%= "'#{human_name} was successfully destroyed.'" %>
-    <% end %>
+<% if controller_class_path.size > 0 -%>
+    redirect_to <%= controller_class_path.join('_') %>_<%= index_helper %>_path, notice: <%= "'#{human_name} was successfully destroyed.'" %>
+<% else -%>
+    redirect_to <%= index_helper %>_path, notice: <%= "'#{human_name} was successfully destroyed.'" %>
+<% end -%>
   end
 
   private
