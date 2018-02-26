@@ -20,7 +20,7 @@ class Admin::ArticlesControllerTest < ActionDispatch::IntegrationTest
       post admin_articles_path, params: { article: { content: article.content, title: article.title } }
     end
 
-    assert_redirected_to article_path(Article.last)
+    assert_redirected_to admin_article_path(Article.last)
   end
 
   def test_show
@@ -35,7 +35,7 @@ class Admin::ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   def test_update
     patch admin_article_url(article), params: { article: { content: article.content, title: article.title } }
-    assert_redirected_to article_path(article)
+    assert_redirected_to admin_article_path(article)
   end
 
   def test_destroy
