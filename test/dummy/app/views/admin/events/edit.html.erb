@@ -1,0 +1,25 @@
+<% content_for :title do %>
+Events
+<% end %>
+
+<% content_for :page_title do %>
+Editing Event
+<% end %>
+
+<% content_for :breadcrumb do -%>
+  <ul class="uk-breadcrumb">
+    
+    <li>
+      <%= link_to 'TOP', '/' %>
+    </li>
+    <li>
+      <%= link_to 'Events', admin_events_path %>
+    </li>
+    <li>
+      <%= link_to 'Event', admin_event_path(@event) %>
+    </li>
+    
+  </ul>
+<% end %>
+
+<%= render 'form', event: @event %>
