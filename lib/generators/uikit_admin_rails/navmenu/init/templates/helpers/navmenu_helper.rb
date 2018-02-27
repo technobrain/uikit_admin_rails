@@ -2,12 +2,13 @@
 
 # active in own controller
 module NavmenuHelper
-  def active_menu_item(model:, namespace: nil, css_class: 'uk-active')
-    css = (controller_name.eql?(model.tableize)) ? css_class : ''
-    path = send([namespace, model.tableize].compact.join('_').concat('_path'))
+  def active_menu_item(link_content:, path:, controller:, active_class: 'uk-active', default_class: '')
+    css_class = (controller_name.eql?(controller)) ? active_class : default_class
 
-    content_tag :li, class: css do
-      link_to model.titleize.pluralize, path
+    content_tag :li, class: css_class do
+      link_to path do
+        link_content
+      end
     end
   end
 end

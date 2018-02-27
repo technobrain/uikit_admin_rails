@@ -1,5 +1,4 @@
-<% if options[:namespace] -%>
-<%%= active_menu_item model: '<%= @item %>', namespace: '<%= options[:namespace] %>' %>
-<% else -%>
-<%%= active_menu_item model: '<%= @item %>' %>
-<% end -%>
+<%%= active_menu_item link_content: '<%= @item.titleize %>',
+                      controller: '<%= @item.tableize %>',
+                      path: <%= [options[:namespace], @item.tableize].compact.join('_') %>_path
+%>
