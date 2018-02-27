@@ -47,27 +47,22 @@ $ rails generate model article title:string content:text
 $ rails generate scaffold_controller admin/article title:string content:text --model-name=article
 ```
 
+You can generate navigation menu in side bar.
+
+```
+$ rails generate uikit_admin_rails:navmenu:init # for generate navigation memu and navmenu_helper.
+$ rails generate uikit_admin_rails:navmenu:add [MODEL_NAME] -n [NAMESPACE] # for generate nav item.
+
+# ex. rails generate uikit_admin_rails:navmenu:add article comment -n admin
+```
+
 ## Installation
 Add this line to your application's Gemfile:
-
-```ruby
-gem 'uikit_admin_rails'
-
-# for UIkit submodule loading
-git submodule init # first time
-git submodule update
-```
-
-And then execute:
-```bash
-$ bundle
-```
-
-Or install it yourself as:
 
 ```bash
 gem 'uikit_admin_rails', github: 'technobrain/uikit_admin_rails', branch: 'develop', submodules: true
 ```
+Then run bundle install
 
 ## Customize templates
 Run the following command to copy templates files for customize templates.
@@ -82,7 +77,13 @@ Rails.application.config.generators.unshift File::expand_path('../../../lib/temp
 ```
 
 ## Contributing
-Contribution directions go here.
+
+NOTE: Run the following command to load UIkit submodule
+
+```
+$ git submodule init # first time
+$ git submodule update
+```
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

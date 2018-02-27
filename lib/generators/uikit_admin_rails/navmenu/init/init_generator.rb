@@ -15,9 +15,14 @@ module UikitAdminRails
         @source_root ||= File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
       end
 
-      def create_namespace
+      def create_navmenu
         FileUtils.mkdir_p(shared_dir) unless File.directory?(shared_dir)
         copy_file template_file, "#{shared_dir}/_nav_menu.html.erb"
+      end
+
+      def create_navmenu_helper
+        dest = Rails.root.join('app', 'helpers')
+        copy_file 'helpers/navmenu_helper.rb', "#{dest}/navmenu_helper.rb"
       end
 
       private
@@ -29,7 +34,7 @@ module UikitAdminRails
       end
 
       def template_file
-        options[:template] ? File.expand_path(options[:template]) : "_nav_menu.tmpl.erb"
+        options[:template] ? File.expand_path(options[:template]) : "views/shared/_nav_menu.tmpl.erb"
       end
     end
   end

@@ -1,7 +1,19 @@
+<!--
 <li>
 <% if options[:namespace] -%>
-  <%%= link_to '<%=@item.titleize.pluralize %>', <%= namespace.split('/').join('_') %>_<%= @item.tableize %>_path %>
+  <%%= link_to '<%=@item.titleize.pluralize %>', <%= options[:namespace].split('/').join('_') %>_<%= @item.tableize %>_path %>
 <% else -%>
   <%%= link_to '<%= @item.titleize.pluralize %>', <%= @item.tableize %>_path %>
 <% end -%>
 </li>
+-->
+
+<% if options[:namespace] -%>
+<%%= active_menu_item title: '<%= @item.titleize.pluralize %>',
+                      path: <%= options[:namespace].split('/').join('_') %>_<%= @item.tableize %>_path,
+                      ctrl: '<%= @item.tableize %>' %>
+<% else -%>
+<%%= active_menu_item title: '<%= @item.titleize.pluralize %>',
+                      path: <%= @item.tableize %>_path,
+                      ctrl: '<%= @item.tableize %>' %>
+<% end -%>

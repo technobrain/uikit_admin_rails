@@ -29,7 +29,7 @@ module UikitAdminRails
 
           inject_into_file "#{shared_dir}/_nav_menu.html.erb", after: "<!-- nav_manu items -->\n" do
             <<-PARTIAL.strip_heredoc
-            <%= render "shared/#{ns}#{ns ? '/' : ''}nav_item_#{item.downcase.pluralize}" %>
+            <%= render "shared/nav_item_#{item.downcase.pluralize}" %>
             PARTIAL
           end
         end
@@ -41,7 +41,7 @@ module UikitAdminRails
       private
       def shared_dir
         base_dir = "#{Rails.root}/app/views/shared"
-        options[:namespace] ? File.join(base_dir, options[:namespace]) : base_dir
+        # options[:namespace] ? File.join(base_dir, options[:namespace]) : base_dir
       end
 
       def template_file
