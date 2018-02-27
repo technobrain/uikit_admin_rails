@@ -20,16 +20,20 @@ module UikitAdminRails
 
       def create_items
         raise StandardError unless File.directory?(shared_dir)
+        puts 'generate navmenu item'
+
         ns = options[:namespace]
         models&.each do |item|
           next if item.blank?
           @item = item
           # copy_file template_file, "#{shared_dir}/_nav_item_#{item.downcase.pluralize}.erb"
           template template_file, "#{shared_dir}/_nav_item_#{item.downcase.pluralize}.html.erb"
+          nav_menu_path = [shared_dir,'_nav_menu.html.erb'].compact.join('/')
+          nav_item = ['shared', ns, "nav_item_#{item.downcase.pluralize}"].compact.join('/')
 
-          inject_into_file "#{shared_dir}/_nav_menu.html.erb", after: "<!-- nav_manu items -->\n" do
+          inject_into_file nav_menu_path, after: "<!-- nav_manu items -->\n" do
             <<-PARTIAL.strip_heredoc
-            <%= render "shared/nav_item_#{item.downcase.pluralize}" %>
+            <%= render "#{nav_item}" %>
             PARTIAL
           end
         end
@@ -41,7 +45,7 @@ module UikitAdminRails
       private
       def shared_dir
         base_dir = "#{Rails.root}/app/views/shared"
-        # options[:namespace] ? File.join(base_dir, options[:namespace]) : base_dir
+        File.join(*[base_dir, options[:namespace]].compact)
       end
 
       def template_file

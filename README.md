@@ -50,9 +50,10 @@ $ rails generate scaffold_controller admin/article title:string content:text --m
 You can generate navigation menu in side bar.
 
 ```
-$ rails generate uikit_admin_rails:navmenu:init # for generate navigation memu and navmenu_helper.
+$ rails generate uikit_admin_rails:navmenu:init [NAMESPACE]# for generate navigation memu and navmenu_helper.
 $ rails generate uikit_admin_rails:navmenu:add [MODEL_NAME] -n [NAMESPACE] # for generate nav item.
 
+# ex. rails generate uikit_admin_rails:navmenu:init admin
 # ex. rails generate uikit_admin_rails:navmenu:add article comment -n admin
 ```
 
