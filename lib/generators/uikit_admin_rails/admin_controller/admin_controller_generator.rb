@@ -3,18 +3,20 @@
 module UikitAdminRails
   class AdminControllerGenerator < Rails::Generators::Base
     DEFAULT_NAMESPACE = 'admin'
+    argument :namespace, type: :string, required: false
     source_root File.expand_path('../templates', __FILE__)
 
     def initialize(*args)
       super(*args)
-      @ns = UikitAdminRails.configuration.admin_controller_namespace || DEFAULT_NAMESPACE
+      @ns = namespace || DEFAULT_NAMESPACE
     end
 
     def copy_admin_layout
       puts 'copy admin layout'
       source = '../templates/views/layouts/admin.html.erb'
       dest = Rails.root.join('app', 'views', 'layouts', "#{@ns}.html.erb")
-      copy_file source, dest
+      # copy_file source, dest
+      template source, dest
     end
 
     def copy_admin_base_index
@@ -41,7 +43,7 @@ module UikitAdminRails
     end
 
     def add_admin_routes
-      route "get 'admin' => 'admin/base#index'"
+      route "get '#{@ns}' => '#{@ns}/base#index'"
     end
   end
 end

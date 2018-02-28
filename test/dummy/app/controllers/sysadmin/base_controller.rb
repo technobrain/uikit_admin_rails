@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-module <%= @ns.to_s.titleize %>
+module Sysadmin
   class BaseController < ApplicationController
     # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-    layout '<%= @ns.to_s %>'
+    layout 'sysadmin'
     # before_action :require_login
 
     def index
-      render '<%= @ns %>/index'
+      render 'sysadmin/index'
     end
 
     private

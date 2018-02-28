@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sysadmin' => 'sysadmin/base#index'
   get 'admin' => 'admin/base#index'
   namespace :admin do
     resources :articles

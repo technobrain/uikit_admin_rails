@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admin::ArticlesController < ApplicationController
+class Admin::ArticlesController < Admin::BaseController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles

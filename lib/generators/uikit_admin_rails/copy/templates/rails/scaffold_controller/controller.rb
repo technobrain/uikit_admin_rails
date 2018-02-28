@@ -5,7 +5,11 @@ require_dependency "<%= namespaced_path %>/application_controller"
 
 <% end -%>
 <% module_namespacing do -%>
+<% if controller_class_path.size > 0 -%>
+class <%= controller_class_name %>Controller < <%= controller_class_path.map(&:titleize).join('::') %>::BaseController
+<% else -%>
 class <%= controller_class_name %>Controller < ApplicationController
+<% end -%>
   before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
 
   # GET <%= route_url %>
