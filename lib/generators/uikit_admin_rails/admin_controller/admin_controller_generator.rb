@@ -2,11 +2,12 @@
 
 module UikitAdminRails
   class AdminControllerGenerator < Rails::Generators::Base
+    DEFAULT_NAMESPACE = 'admin'
     source_root File.expand_path('../templates', __FILE__)
 
     def initialize(*args)
       super(*args)
-      @ns = UikitAdminRails.configuration.admin_controller_namespace
+      @ns = UikitAdminRails.configuration.admin_controller_namespace || DEFAULT_NAMESPACE
     end
 
     def copy_admin_layout
