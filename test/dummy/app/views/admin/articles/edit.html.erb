@@ -1,0 +1,25 @@
+<% content_for :title do %>
+Articles
+<% end %>
+
+<% content_for :page_title do %>
+Editing Article
+<% end %>
+
+<% content_for :breadcrumb do -%>
+  <ul class="uk-breadcrumb">
+    
+    <li>
+      <%= link_to 'TOP', '/' %>
+    </li>
+    <li>
+      <%= link_to 'Articles', admin_articles_path %>
+    </li>
+    <li>
+      <%= link_to 'Article', admin_article_path(@article) %>
+    </li>
+    
+  </ul>
+<% end %>
+
+<%= render 'form', article: @article %>

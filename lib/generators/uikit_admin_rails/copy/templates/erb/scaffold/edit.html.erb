@@ -1,0 +1,35 @@
+<%% content_for :title do %>
+<%= table_name.titleize %>
+<%% end %>
+
+<%% content_for :page_title do %>
+Editing <%= singular_table_name.titleize %>
+<%% end %>
+
+<%% content_for :breadcrumb do -%>
+  <ul class="uk-breadcrumb">
+    <% if controller_class_path.size > 0 %>
+    <li>
+      <%%= link_to 'TOP', '/' %>
+    </li>
+    <li>
+      <%%= link_to '<%= plural_table_name.titleize %>', <%= controller_class_path.join('_') %>_<%= index_helper %>_path %>
+    </li>
+    <li>
+      <%%= link_to '<%= class_name %>', <%= controller_class_path.join('_') %>_<%= singular_table_name %>_path(@<%= singular_table_name %>) %>
+    </li>
+    <% else %>
+    <li>
+      <%%= link_to 'TOP', '/' %>
+    </li>
+    <li>
+      <%%= link_to '<%= plural_table_name.titleize %>', <%= index_helper %>_path %>
+    </li>
+    <li>
+      <%%= link_to '<%= class_name %>', @<%= singular_table_name %> %>
+    </li>
+    <% end %>
+  </ul>
+<%% end %>
+
+<%%= render 'form', <%= singular_table_name %>: @<%= singular_table_name %> %>

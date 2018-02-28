@@ -1,0 +1,48 @@
+
+<%= form_with(model: [:admin, comment], local: true, class: 'uk-form-horizontal') do |form| %>
+
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="uk-margin">
+  <%= form.label :content, class: 'uk-form-label' %>
+    <div class="uk-form-controls">
+    <%= form.text_area :content, id: :comment_content, class: 'uk-textarea uk-form-width-large' %>
+    </div>
+  </div>
+
+<br />
+
+<div class="uk-child-width-expand" uk-grid>
+  <div uk-grid>
+    <div class="actions">
+      <%= form.submit nil, class: 'uk-button uk-button-small uk-button-primary' %>
+    </div>
+    <div class="actions">
+      <%= link_to admin_comments_path, class: 'uk-button uk-button-small uk-button-default' do %>
+        Cancel
+      <% end %>
+    </div>
+  </div>
+  <% if form.object.persisted? %>
+  <div>
+    <div class="actions">
+      <%= link_to 'Delete Comment', admin_comment_path(@comment),
+                   method: :delete,
+                   class: 'uk-button uk-button-small uk-button-danger uk-align-right',
+                   data: { confirm: 'Are you sure?' }
+      %>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>

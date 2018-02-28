@@ -1,0 +1,22 @@
+<% content_for :title do %>
+Comments
+<% end %>
+
+<% content_for :page_title do %>
+New Comment
+<% end %>
+
+<% content_for :breadcrumb do -%>
+  <ul class="uk-breadcrumb">
+    
+    <li>
+      <%= link_to 'TOP', '/' %>
+    </li>
+    <li>
+      <%= link_to 'Comments', admin_comments_path %>
+    </li>
+    
+  </ul>
+<% end %>
+
+<%= render 'form', comment: @comment %>
