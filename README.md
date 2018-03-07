@@ -10,7 +10,7 @@ Run the following command to generate the initializer file.
 $ rails generate uikit_admin_rails:install
 ```
 
-Append following code to app/assets/application.js
+Append following code to app/assets/javascripts/application.js
 
 ```
 ...
@@ -19,7 +19,7 @@ Append following code to app/assets/application.js
 ...
 ```
 
-And append following code to app/assets/application.css.
+And append following code to app/assets/stylesheets/application.css
 
 ```
 ...
