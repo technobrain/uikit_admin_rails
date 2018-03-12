@@ -10,16 +10,16 @@ Run the following command to generate the initializer file.
 $ rails generate uikit_admin_rails:install
 ```
 
-Append following code to app/assets/application.js
+Append following code to app/assets/javascripts/application.js
 
 ```
 ...
 //= require uikit.min.js
-//= require uikit-icon.min.js
+//= require uikit-icons.min.js
 ...
 ```
 
-And append following code to app/assets/application.css.
+And append following code to app/assets/stylesheets/application.css
 
 ```
 ...
