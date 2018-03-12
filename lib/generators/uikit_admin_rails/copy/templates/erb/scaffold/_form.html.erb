@@ -3,17 +3,6 @@
 <% else %>
 <%%= form_with(model: <%= singular_table_name %>, local: true, class: 'uk-form-horizontal') do |form| %>
 <% end %>
-  <%% if <%= singular_table_name %>.errors.any? %>
-    <div id="error_explanation">
-      <h2><%%= pluralize(<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h2>
-
-      <ul>
-      <%% <%= singular_table_name %>.errors.full_messages.each do |message| %>
-        <li><%%= message %></li>
-      <%% end %>
-      </ul>
-    </div>
-  <%% end %>
 
 <% attributes.each do |attribute| -%>
 <% if attribute.password_digest? -%>
@@ -27,24 +16,24 @@
 <div class="uk-margin">
   <%%= form.label :password_confirmation, class: 'uk-form-label' -%>
   <div class="uk-form-controls uk-form-controls-text">
-    <%%= form.password_field :password_confirmation, id: :<%= field_id(:password_confirmation) %>, class: 'uk-input' %>
+  <%%= form.password_field :password_confirmation, id: :<%= field_id(:password_confirmation) %>, class: 'uk-input' %>
   </div>
 </div>
 <% else -%>
-  <div class="uk-margin">
+<div class="uk-margin">
   <%%= form.label :<%= attribute.column_name -%>, class: 'uk-form-label' %>
-    <div class="uk-form-controls">
+  <div class="uk-form-controls">
 <% if attribute.type == :text -%>
-    <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, id: :<%= field_id(attribute.column_name) %>, class: 'uk-textarea uk-form-width-large' %>
+  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, id: :<%= field_id(attribute.column_name) %>, class: 'uk-textarea uk-form-width-large' %>
 <% elsif attribute.type == :boolean -%>
-    <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, id: :<%= field_id(attribute.column_name) %>, class: 'uk-checkbox uk-form-width-medium' %>
+  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, id: :<%= field_id(attribute.column_name) %>, class: 'uk-checkbox uk-form-width-medium' %>
 <% elsif attribute.type == :date -%>
-    <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, {}, { id: :<%= field_id(attribute.column_name) %>, class: 'uk-select uk-form-width-small' } %>
+  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, {}, { id: :<%= field_id(attribute.column_name) %>, class: 'uk-select uk-form-width-small' } %>
 <% else -%>
-    <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, id: :<%= field_id(attribute.column_name) %>, class: 'uk-input uk-form-width-large' %>
+  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, id: :<%= field_id(attribute.column_name) %>, class: 'uk-input uk-form-width-large' %>
 <% end -%>
-    </div>
   </div>
+</div>
 <% end -%>
 <% end -%>
 

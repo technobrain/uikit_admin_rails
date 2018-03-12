@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 # Declare your gem's dependencies in uikit_admin_rails.gemspec.
@@ -11,4 +13,5 @@ gemspec
 # your gem to rubygems.org.
 
 # To use a debugger
-gem 'byebug', group: [:development, :test]
+gem 'byebug', group: %i[development test]
+gem 'rubocop', group: [:development]

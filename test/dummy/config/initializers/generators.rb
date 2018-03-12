@@ -13,5 +13,5 @@ Rails.application.config.generators do |g|
   #                  routing_specs: false,
   #                  helper_specs: false
 
-  g.templates.unshift File::expand_path('../../../lib/templates', __FILE__)
+  g.templates.unshift File.expand_path('../../lib/templates', __dir__)
 end

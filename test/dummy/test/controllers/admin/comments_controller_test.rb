@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class Admin::CommentsControllerTest < ActionDispatch::IntegrationTest
   def comment
@@ -16,7 +16,7 @@ class Admin::CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   def test_create
-    assert_difference "Comment.count" do
+    assert_difference 'Comment.count' do
       post admin_comments_url, params: { comment: { content: comment.content } }
     end
 
@@ -39,7 +39,7 @@ class Admin::CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   def test_destroy
-    assert_difference "Comment.count", -1  do
+    assert_difference 'Comment.count', -1 do
       delete admin_comment_url(comment)
     end
 

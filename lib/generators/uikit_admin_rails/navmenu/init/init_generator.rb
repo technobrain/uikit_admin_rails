@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module UikitAdminRails
   module Navmenu
-    class InitGenerator < ::Rails::Generators::Base
+    class InitGenerator < ::Rails::Generators::Base #:nodoc:
       argument :namespace, type: :string, required: false
       class_option :template, type: :string, aliases: '-t'
       desc <<-LONGDESC
@@ -11,7 +13,7 @@ module UikitAdminRails
           -t [--template]     # テンプレートファイルを指定します
       LONGDESC
 
-      def self.source_root(path = nil)
+      def self.source_root(_path = nil)
         @source_root ||= File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
       end
 
@@ -28,13 +30,17 @@ module UikitAdminRails
       private
 
       def shared_dir
-        base_dir = "#{Rails.root}/app/views/shared"
+        base_dir = Rails.root.join('app', 'views', 'shared')
         return base_dir unless namespace
         File.join(base_dir, namespace)
       end
 
       def template_file
-        options[:template] ? File.expand_path(options[:template]) : "views/shared/_nav_menu.tmpl.erb"
+        if options[:template]
+          File.expand_path(options[:template])
+        else
+          'views/shared/_nav_menu.tmpl.erb'
+        end
       end
     end
   end

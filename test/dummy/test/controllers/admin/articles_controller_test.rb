@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class Admin::ArticlesControllerTest < ActionDispatch::IntegrationTest
   def article
@@ -16,7 +16,7 @@ class Admin::ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   def test_create
-    assert_difference "Article.count" do
+    assert_difference 'Article.count' do
       post admin_articles_url, params: { article: { content: article.content, title: article.title } }
     end
 
@@ -39,7 +39,7 @@ class Admin::ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   def test_destroy
-    assert_difference "Article.count", -1  do
+    assert_difference 'Article.count', -1 do
       delete admin_article_url(article)
     end
 

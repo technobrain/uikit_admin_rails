@@ -22,3 +22,24 @@ end
 UikitAdminRails.configure do |config|
   config.admin_controller_namespace = :admin
 end
+
+# Apply UIkit alert form
+# TODO append to gem
+Rails.application.config.action_view.field_error_proc = proc do |html_tag, _instance_tag|
+  input_forms = %w[input textarea select]
+  html = html_tag
+  elem = Nokogiri::HTML::DocumentFragment.parse(html_tag).css 'label'
+  if elem.first
+    elem.first.attributes['class'].value += ' uk-text-danger'
+    html = elem.to_html.html_safe
+  else
+    input_forms.each do |form|
+      elem = Nokogiri::HTML::DocumentFragment.parse(html_tag).css(form)
+      if elem.first
+        elem.first.attributes['class'].value += ' uk-form-danger'
+        html = elem.to_html.html_safe
+      end
+    end
+  end
+  html
+end

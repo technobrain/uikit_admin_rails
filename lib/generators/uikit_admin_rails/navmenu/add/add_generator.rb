@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module UikitAdminRails
   module Navmenu
-    class AddGenerator < ::Rails::Generators::Base
+    class AddGenerator < ::Rails::Generators::Base #:nodoc:
       argument :models, type: :array, required: true
       class_option :namespace, type: :string, aliases: '-n'
       class_option :template, type: :string, aliases: '-t'
@@ -14,42 +16,42 @@ module UikitAdminRails
           -t [--template]   # テンプレートファイルを指定します
       LONGDESC
 
-      def self.source_root(path = nil)
+      def self.source_root(_path = nil)
         @source_root ||= File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
       end
 
       def create_items
         raise StandardError unless File.directory?(shared_dir)
-        puts 'generate navmenu item'
-
-        ns = options[:namespace]
+        # puts 'generate navmenu item'
         models&.each do |item|
           next if item.blank?
           @item = item
-          # copy_file template_file, "#{shared_dir}/_nav_item_#{item.downcase.pluralize}.erb"
-          template template_file, "#{shared_dir}/_nav_item_#{item.downcase.pluralize}.html.erb"
-          nav_menu_path = [shared_dir,'_nav_menu.html.erb'].compact.join('/')
-          nav_item = ['shared', ns, "nav_item_#{item.downcase.pluralize}"].compact.join('/')
-
-          inject_into_file nav_menu_path, after: "<!-- nav_manu items -->\n" do
-            <<-PARTIAL.strip_heredoc
-            <%= render "#{nav_item}" %>
-            PARTIAL
-          end
+          template_inject_to_file(item, options[:namespace])
         end
       rescue StandardError => e
-          puts e.message
-          puts "namespace #{options[:namespace]} doesn't exist"
+        Rails.logger.debug e.message
+        # Rails.logger.debug "namespace #{options[:namespace]} doesn't exist"
       end
 
       private
+
+      def template_inject_to_file(item, namespace)
+        template template_file, "#{shared_dir}/_nav_item_#{item.downcase.pluralize}.html.erb"
+        nav_menu_path = [shared_dir, '_nav_menu.html.erb'].compact.join('/')
+        nav_item = ['shared', namespace, "nav_item_#{item.downcase.pluralize}"].compact.join('/')
+
+        inject_into_file nav_menu_path, after: "<!-- nav_manu items -->\n" do
+          "<%= render '#{nav_item}' %>"
+        end
+      end
+
       def shared_dir
-        base_dir = "#{Rails.root}/app/views/shared"
+        base_dir = Rails.root.join('app', 'views', 'shared')
         File.join(*[base_dir, options[:namespace]].compact)
       end
 
       def template_file
-        options[:template] ? File.expand_path(options[:template]) : "_nav_item.tmpl.erb"
+        options[:template] ? File.expand_path(options[:template]) : '_nav_item.tmpl.erb'
       end
     end
   end

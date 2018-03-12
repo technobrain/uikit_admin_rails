@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module UikitAdminRails
-  class Configuration
+  class Configuration #:nodoc:
     # Configurable option
-    OPTIONS = %i(
+    OPTIONS = %i[
       admin_controller_namespace
-    ).freeze
+    ].freeze
 
     attr_accessor(*OPTIONS)
   end
