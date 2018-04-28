@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'uikit_admin_rails/engine'
 require 'uikit_admin_rails/version'
 require 'uikit_admin_rails/configuration'
 
-module UikitAdminRails
+module UikitAdminRails #:nodoc:
   # Your code goes here...
 
   class << self

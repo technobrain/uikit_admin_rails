@@ -12,12 +12,12 @@ $ rails generate uikit_admin_rails:install
 Then generate scss theme file to app/assets/stylesheets directory.
 
 
-Append following code to app/assets/application.js
+Append following code to app/assets/javascripts/application.js
 
 ```
 ...
 //= require uikit.min.js
-//= require uikit-icon.min.js
+//= require uikit-icons.min.js
 ...
 ```
 

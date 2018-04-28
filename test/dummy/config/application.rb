@@ -3,7 +3,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-require "uikit_admin_rails"
+require 'uikit_admin_rails'
 
 module Dummy
   class Application < Rails::Application

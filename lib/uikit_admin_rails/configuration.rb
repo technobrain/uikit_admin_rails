@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module UikitAdminRails
-  class Configuration
+  class Configuration #:nodoc:
     # Configurable option
-    OPTIONS = %i(
+    OPTIONS = %i[
       admin_controller_namespace
       theme_entry_path
-    ).freeze
+    ].freeze
 
     attr_accessor(*OPTIONS)
   end

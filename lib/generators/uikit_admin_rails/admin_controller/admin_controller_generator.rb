@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module UikitAdminRails
-  class AdminControllerGenerator < Rails::Generators::Base
+  class AdminControllerGenerator < Rails::Generators::Base #:nodoc:
     DEFAULT_NAMESPACE = 'admin'
     argument :namespace, type: :string, required: false
-    source_root File.expand_path('../templates', __FILE__)
+    source_root File.expand_path('templates', __dir__)
 
     def initialize(*args)
       super(*args)
@@ -20,7 +20,7 @@ module UikitAdminRails
     end
 
     def copy_admin_layout
-      puts 'copy admin layout'
+      # puts 'copy admin layout'
       source = '../templates/views/layouts/admin.html.erb'
       dest = Rails.root.join('app', 'views', 'layouts', "#{@ns}.html.erb")
       # copy_file source, dest
@@ -28,7 +28,7 @@ module UikitAdminRails
     end
 
     def copy_admin_base_index
-      puts 'copy admin base index'
+      # puts 'copy admin base index'
       source = '../templates/views/admin/index.html.erb'
       dest = Rails.root.join('app', 'views', @ns.to_s, 'index.html.erb')
       @path = "#{@ns}/index"
@@ -36,9 +36,9 @@ module UikitAdminRails
     end
 
     def generate_base_controller
-      puts 'generate base_controller'
+      # puts 'generate base_controller'
       source = '../templates/controllers/base_controller.rb'
-      dest = Rails.root.join('app', 'controllers',  "#{@ns}", 'base_controller.rb')
+      dest = Rails.root.join('app', 'controllers', @ns.to_s, 'base_controller.rb')
       template source, dest
     end
 

@@ -2,7 +2,7 @@
 
 module Admin
   class CommentsController < BaseController
-    before_action :set_comment, only: [:show, :edit, :update, :destroy]
+    before_action :set_comment, only: %i[show edit update destroy]
 
     # GET /comments
     def index
@@ -10,8 +10,7 @@ module Admin
     end
 
     # GET /comments/1
-    def show
-    end
+    def show; end
 
     # GET /comments/new
     def new
@@ -19,8 +18,7 @@ module Admin
     end
 
     # GET /comments/1/edit
-    def edit
-    end
+    def edit; end
 
     # POST /comments
     def create
@@ -49,14 +47,15 @@ module Admin
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_comment
-        @comment = Comment.find(params[:id])
-      end
 
-      # Only allow a trusted parameter "white list" through.
-      def comment_params
-        params.require(:comment).permit(:content)
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_comment
+      @comment = Comment.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def comment_params
+      params.require(:comment).permit(:content)
+    end
   end
 end
