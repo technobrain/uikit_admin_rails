@@ -8,9 +8,10 @@ Run the following command to generate the initializer file.
 
 ```
 $ rails generate uikit_admin_rails:install
+$ rails generate uikit_admin_rails:install_uikit
 ```
-Then generate scss theme file to app/assets/stylesheets directory.
-
+Then generate scss theme file to app/assets/stylesheets directory.  
+And install [Uikit](https://getuikit.com/) css framework as node module.
 
 Append following code to app/assets/javascripts/application.js
 
@@ -72,12 +73,7 @@ Rails.application.config.generators.unshift File::expand_path('../../../lib/temp
 
 ## Contributing
 
-NOTE: Run the following command to load UIkit submodule
 
-```
-$ git submodule init # first time
-$ git submodule update
-```
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
