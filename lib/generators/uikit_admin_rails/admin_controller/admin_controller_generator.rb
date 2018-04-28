@@ -10,6 +10,14 @@ module UikitAdminRails
       super(*args)
       @ns = namespace || DEFAULT_NAMESPACE
     end
+    
+    def copy_shared_templates
+      puts 'copy shared templates'
+
+      source = File.expand_path('../templates/views/shared', __FILE__)
+      dest = Rails.root.join('app', 'views', 'shared')
+      directory source, dest
+    end
 
     def copy_admin_layout
       puts 'copy admin layout'
@@ -25,14 +33,6 @@ module UikitAdminRails
       dest = Rails.root.join('app', 'views', @ns.to_s, 'index.html.erb')
       @path = "#{@ns}/index"
       template source, dest
-    end
-
-    def copy_shared_templates
-      puts 'copy shared templates'
-
-      source = File.expand_path('../templates/views/shared', __FILE__)
-      dest = Rails.root.join('app', 'views', 'shared')
-      directory source, dest
     end
 
     def generate_base_controller
