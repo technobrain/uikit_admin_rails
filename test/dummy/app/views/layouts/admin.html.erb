@@ -15,12 +15,12 @@
   <body>
     <%= yield :offcanvas %>
 
-    <nav uk-sticky class="tb-navbar-container ukx-navbar-container uk-light uk-sticky uk-sticky-fixed" uk-navbar>
+    <nav uk-sticky class="uk-navbar-container uk-sticky uk-sticky-fixed" uk-navbar>
       <%= render 'shared/header' %>
     </nav>
 
     <div class="uk-grid-collapse" uk-grid>
-      <div class="uk-width-small@m uk-width-1-4@s uk-visible@s uk-section-muted uk-padding-small">
+      <div class="uk-width-small@m uk-width-1-4@s uk-visible@s uk-section-primary uk-padding-small">
         <div class="uk-height-large">
           <%= yield :sidebar_nav %>
         </div>
@@ -51,7 +51,6 @@
         </div>
       </div>
     </div>
-    <hr class="uk-margin-remove"/>
 
     <div>
       <%= render 'shared/footer' %>
