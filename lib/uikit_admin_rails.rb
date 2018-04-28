@@ -17,5 +17,7 @@ module UikitAdminRails #:nodoc:
     def configure
       yield configuration
     end
+
+    alias_method :config, :configuration
   end
 end

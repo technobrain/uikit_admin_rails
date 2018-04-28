@@ -21,6 +21,7 @@ end
 
 UikitAdminRails.configure do |config|
   config.admin_controller_namespace = :admin
+  config.theme_entry_path = Rails.root.join('app', 'assets', 'stylesheets')
 end
 
 # Apply UIkit alert form
