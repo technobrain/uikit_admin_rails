@@ -7,6 +7,7 @@ test/dummy/log/*.log
 test/dummy/tmp/
 test/dummy/lib/templates
 test/dummy/public/assets/*
+test/dummy/node_modules/*
 
 /vendor/bundle
 

@@ -20,8 +20,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '>= 5.1.5'
 
-  s.add_development_dependency 'minitest-rails'
-  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency "sass-rails"
+  s.add_development_dependency "minitest-rails"
+  s.add_development_dependency "sqlite3"
 
   # #######################################################
   # # Git submodule

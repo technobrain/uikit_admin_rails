@@ -8,7 +8,10 @@ Run the following command to generate the initializer file.
 
 ```
 $ rails generate uikit_admin_rails:install
+$ rails generate uikit_admin_rails:install_uikit
 ```
+Then generate scss theme file to app/assets/stylesheets directory.  
+And install [Uikit](https://getuikit.com/) css framework as node module.
 
 Append following code to app/assets/javascripts/application.js
 
@@ -19,15 +22,6 @@ Append following code to app/assets/javascripts/application.js
 ...
 ```
 
-And append following code to app/assets/stylesheets/application.css
-
-```
-...
-*= require uikit.min.css
-# or using custom theme
-*= require uikit.tb-admin-theme.css
-...
-```
 Run the following command to generate admin layout, shared partial views and admin base controller.
 
 ```
@@ -61,7 +55,7 @@ $ rails generate uikit_admin_rails:navmenu:add [MODEL_NAME] -n [NAMESPACE] # for
 Add this line to your application's Gemfile:
 
 ```bash
-gem 'uikit_admin_rails', github: 'technobrain/uikit_admin_rails', branch: 'develop', submodules: true
+gem 'uikit_admin_rails', github: 'technobrain/uikit_admin_rails', branch: 'develop'
 ```
 Then run bundle install
 
@@ -79,12 +73,7 @@ Rails.application.config.generators.unshift File::expand_path('../../../lib/temp
 
 ## Contributing
 
-NOTE: Run the following command to load UIkit submodule
 
-```
-$ git submodule init # first time
-$ git submodule update
-```
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
