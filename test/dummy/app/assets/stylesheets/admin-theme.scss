@@ -11,3 +11,20 @@ $navbar-nav-item-height: 50px;
 
 // 4. Import UIkit.
 @import "uikit/src/scss/uikit-theme.scss";
+
+// 5. Custom classes
+.tb-main {
+  padding-left: $width-medium-width;
+
+  top: $navbar-nav-item-height;
+}
+
+.tb-sidebar-left {
+    position: fixed;
+    top: $navbar-nav-item-height;
+    bottom: 0;
+    box-sizing: border-box;
+    width: $width-medium-width !important;
+    border-right: 1px #e5e5e5 solid;
+    overflow: auto;
+}

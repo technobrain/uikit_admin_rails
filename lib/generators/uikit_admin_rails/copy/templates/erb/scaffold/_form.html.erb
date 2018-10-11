@@ -9,14 +9,14 @@
 <div class="uk-margin">
   <%%= form.label :password -%>
   <div class: 'uk-form-controls uk-form-controls-text'>
-  <%%= form.password_field :password, id: :<%= field_id(:password) -%> %>
+  <%%= form.password_field :password -%> %>
   </div>
 </div>
 
 <div class="uk-margin">
   <%%= form.label :password_confirmation, class: 'uk-form-label' -%>
   <div class="uk-form-controls uk-form-controls-text">
-  <%%= form.password_field :password_confirmation, id: :<%= field_id(:password_confirmation) %>, class: 'uk-input' %>
+  <%%= form.password_field :password_confirmation %>, class: 'uk-input' %>
   </div>
 </div>
 <% else -%>
@@ -24,13 +24,13 @@
   <%%= form.label :<%= attribute.column_name -%>, class: 'uk-form-label' %>
   <div class="uk-form-controls">
 <% if attribute.type == :text -%>
-  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, id: :<%= field_id(attribute.column_name) %>, class: 'uk-textarea uk-form-width-large' %>
+  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, class: 'uk-textarea uk-form-width-large' %>
 <% elsif attribute.type == :boolean -%>
-  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, id: :<%= field_id(attribute.column_name) %>, class: 'uk-checkbox uk-form-width-medium' %>
+  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, class: 'uk-checkbox uk-form-width-medium' %>
 <% elsif attribute.type == :date -%>
-  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, {}, { id: :<%= field_id(attribute.column_name) %>, class: 'uk-select uk-form-width-small' } %>
+  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, {}, { class: 'uk-select uk-form-width-small' } %>
 <% else -%>
-  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, id: :<%= field_id(attribute.column_name) %>, class: 'uk-input uk-form-width-large' %>
+  <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, class: 'uk-input uk-form-width-large' %>
 <% end -%>
   </div>
 </div>

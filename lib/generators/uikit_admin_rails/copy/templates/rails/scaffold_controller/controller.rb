@@ -49,7 +49,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   def update
     if @<%= orm_instance.update("#{singular_table_name}_params") %>
 <% if controller_class_path.size > 0 -%>
-      redirect_to <%= controller_class_path.join('_') %>_<%= singular_table_name %>_path(@<%= singular_table_name %>), notice: <%= "'#{human_name} was successfully created.'" %>
+      redirect_to <%= controller_class_path.join('_') %>_<%= singular_table_name %>_path(@<%= singular_table_name %>), notice: <%= "'#{human_name} was successfully updated.'" %>
 <% else -%>
       redirect_to @<%= singular_table_name %>, notice: <%= "'#{human_name} was successfully updated.'" %>
 <% end -%>
