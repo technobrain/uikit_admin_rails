@@ -17,8 +17,8 @@ Append following code to app/assets/javascripts/application.js
 
 ```
 ...
-//= require uikit.min.js
-//= require uikit-icons.min.js
+//= require uikit/dist/js/uikit.min.js
+//= require uikit/dist/js/uikit-icons.min.js
 ...
 ```
 
