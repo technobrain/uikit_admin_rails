@@ -11,6 +11,14 @@ module UikitAdminRails
       copy_file source, dest
     end
 
+    def copy_scss_custom_theme
+      say "Appending custom style to #{Rails.root.join('app', 'assets', 'stylesheets', 'admin')}"
+      source = File.expand_path('templates/admin', __dir__)
+      FileUtils.mkdir_p(source)
+      dest = Rails.root.join('app', 'assets', 'stylesheets', 'admin')
+      directory source, dest
+    end
+
     def copy_initializer_file
       say 'create initializers/uikit_admin.rb'
       source = '../templates/uikit_admin.rb'
